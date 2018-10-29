@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>activate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+activate</font>
+</center></td></tr></table>
+<pre><span class="s0"># This file must be used with &quot;source bin/activate&quot; *from bash*</span>
+# you cannot run it directly
+
+deactivate () {
+    # reset old environment variables
+    if [ -n &quot;${_OLD_VIRTUAL_PATH:-}&quot; ] ; then
+        PATH=&quot;${_OLD_VIRTUAL_PATH:-}&quot;
+        export PATH
+        unset _OLD_VIRTUAL_PATH
+    fi
+    if [ -n &quot;${_OLD_VIRTUAL_PYTHONHOME:-}&quot; ] ; then
+        PYTHONHOME=&quot;${_OLD_VIRTUAL_PYTHONHOME:-}&quot;
+        export PYTHONHOME
+        unset _OLD_VIRTUAL_PYTHONHOME
+    fi
+
+    # This should detect bash and zsh, which have a hash command that must
+    # be called to get it to forget past commands.  Without forgetting
+    # past commands the $PATH changes we made may not be respected
+    if [ -n &quot;${BASH:-}&quot; -o -n &quot;${ZSH_VERSION:-}&quot; ] ; then
+        hash -r
+    fi
+
+    if [ -n &quot;${_OLD_VIRTUAL_PS1:-}&quot; ] ; then
+        PS1=&quot;${_OLD_VIRTUAL_PS1:-}&quot;
+        export PS1
+        unset _OLD_VIRTUAL_PS1
+    fi
+
+    unset VIRTUAL_ENV
+    if [ ! &quot;$1&quot; = &quot;nondestructive&quot; ] ; then
+    # Self destruct!
+        unset -f deactivate
+    fi
+}
+
+# unset irrelevant variables
+deactivate nondestructive
+
+VIRTUAL_ENV=&quot;C:\Users\ukm\PycharmProjects\weather1\venv&quot;
+export VIRTUAL_ENV
+
+_OLD_VIRTUAL_PATH=&quot;$PATH&quot;
+PATH=&quot;$VIRTUAL_ENV/Scripts:$PATH&quot;
+export PATH
+
+# unset PYTHONHOME if set
+# this will fail if PYTHONHOME is set to the empty string (which is bad anyway)
+# could use `if (set -u; : $PYTHONHOME) ;` in bash
+if [ -n &quot;${PYTHONHOME:-}&quot; ] ; then
+    _OLD_VIRTUAL_PYTHONHOME=&quot;${PYTHONHOME:-}&quot;
+    unset PYTHONHOME
+fi
+
+if [ -z &quot;${VIRTUAL_ENV_DISABLE_PROMPT:-}&quot; ] ; then
+    _OLD_VIRTUAL_PS1=&quot;${PS1:-}&quot;
+    if [ &quot;x(venv) &quot; != x ] ; then
+	PS1=&quot;(venv) ${PS1:-}&quot;
+    else
+    if [ &quot;`basename \&quot;$VIRTUAL_ENV\&quot;`&quot; = &quot;__&quot; ] ; then
+        # special case for Aspen magic directories
+        # see http://www.zetadev.com/software/aspen/
+        PS1=&quot;[`basename \`dirname \&quot;$VIRTUAL_ENV\&quot;\``] $PS1&quot;
+    else
+        PS1=&quot;(`basename \&quot;$VIRTUAL_ENV\&quot;`)$PS1&quot;
+    fi
+    fi
+    export PS1
+fi
+
+# This should detect bash and zsh, which have a hash command that must
+# be called to get it to forget past commands.  Without forgetting
+# past commands the $PATH changes we made may not be respected
+if [ -n &quot;${BASH:-}&quot; -o -n &quot;${ZSH_VERSION:-}&quot; ] ; then
+    hash -r
+fi
+</pre>
+</body>
+</html>

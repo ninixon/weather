@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>huhu.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+huhu.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">flask </span><span class="s0">import </span><span class="s1">Flask</span><span class="s0">, </span><span class="s1">render_template</span><span class="s0">, </span><span class="s1">request</span>
+<span class="s0">import </span><span class="s1">requests</span>
+
+app = Flask(__name__)
+
+@app.route(<span class="s2">'/temperature'</span><span class="s0">, </span><span class="s1">methods=[</span><span class="s2">'POST'</span><span class="s1">])</span>
+<span class="s0">def </span><span class="s1">temperature():</span>
+    zipcode = request.form[<span class="s2">'zip'</span><span class="s1">]</span>
+    r = requests.get(<span class="s2">'http://api.openweathermap.org/data/2.5/weather?zip='</span><span class="s1">+zipcode+</span><span class="s2">',de&amp;appid=8e457b829930ac77ad2bc76dac41ddb5'</span><span class="s1">)</span>
+    json_object = r.json()
+    temp_k = float(json_object[<span class="s2">'main'</span><span class="s1">][</span><span class="s2">'temp'</span><span class="s1">])</span>
+    temp_f = (temp_k - <span class="s3">273.15</span><span class="s1">) * </span><span class="s3">1.8 </span><span class="s1">+ </span><span class="s3">32</span>
+    <span class="s1">temp_c = (temp_f - </span><span class="s3">32</span><span class="s1">) / </span><span class="s3">1.8</span>
+    <span class="s0">return </span><span class="s1">render_template(</span><span class="s2">'temperature.html'</span><span class="s0">, </span><span class="s1">temp1=temp_f</span><span class="s0">, </span><span class="s1">temp2=temp_c)</span>
+
+@app.route(<span class="s2">'/'</span><span class="s1">)</span>
+<span class="s0">def </span><span class="s1">index():</span>
+    <span class="s0">return </span><span class="s1">render_template(</span><span class="s2">'index.html'</span><span class="s1">)</span>
+
+<span class="s4"># if __name__ == '__main__':</span>
+<span class="s1">app.run(debug=</span><span class="s0">True</span><span class="s1">)</span></pre>
+</body>
+</html>

@@ -1,0 +1,3 @@
+{"coord":{"lon":11.58,"lat":48.14},
+  "weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"},
+    {"id":616,"main":"Snow","description":"rain and snow","icon":"13n"},{"id":701,"main":"Mist","description":"mist","icon":"50n"}],"base":"stations","main":{"temp":274.31,"pressure":1005,"humidity":93,"temp_min":273.15,"temp_max":276.15},"visibility":7000,"wind":{"speed":3.6,"deg":30},"clouds":{"all":90},"dt":1540704000,"sys":{"type":1,"id":4887,"message":0.0035,"country":"DE","sunrise":1540705966,"sunset":1540742483},"id":2867714,"name":"Munich","cod":200}

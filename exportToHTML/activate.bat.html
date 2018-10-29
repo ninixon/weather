@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>activate.bat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+activate.bat</font>
+</center></td></tr></table>
+<pre><span class="s0">@echo off</span>
+
+rem This file is UTF-8 encoded, so we need to update the current code page while executing it
+for /f &quot;tokens=2 delims=:&quot; %%a in ('&quot;%SystemRoot%\System32\chcp.com&quot;') do (
+    set &quot;_OLD_CODEPAGE=%%a&quot;
+)
+if defined _OLD_CODEPAGE (
+    &quot;%SystemRoot%\System32\chcp.com&quot; 65001 &gt; nul
+)
+
+set &quot;VIRTUAL_ENV=C:\Users\ukm\PycharmProjects\weather1\venv&quot;
+
+if not defined PROMPT (
+    set &quot;PROMPT=$P$G&quot;
+)
+
+if defined _OLD_VIRTUAL_PROMPT (
+    set &quot;PROMPT=%_OLD_VIRTUAL_PROMPT%&quot;
+)
+
+if defined _OLD_VIRTUAL_PYTHONHOME (
+    set &quot;PYTHONHOME=%_OLD_VIRTUAL_PYTHONHOME%&quot;
+)
+
+set &quot;_OLD_VIRTUAL_PROMPT=%PROMPT%&quot;
+set &quot;PROMPT=(venv) %PROMPT%&quot;
+
+if defined PYTHONHOME (
+    set &quot;_OLD_VIRTUAL_PYTHONHOME=%PYTHONHOME%&quot;
+    set PYTHONHOME=
+)
+
+if defined _OLD_VIRTUAL_PATH (
+    set &quot;PATH=%_OLD_VIRTUAL_PATH%&quot;
+) else (
+    set &quot;_OLD_VIRTUAL_PATH=%PATH%&quot;
+)
+
+set &quot;PATH=%VIRTUAL_ENV%\Scripts;%PATH%&quot;
+
+:END
+if defined _OLD_CODEPAGE (
+    &quot;%SystemRoot%\System32\chcp.com&quot; %_OLD_CODEPAGE% &gt; nul
+    set &quot;_OLD_CODEPAGE=&quot;
+)
+</pre>
+</body>
+</html>
